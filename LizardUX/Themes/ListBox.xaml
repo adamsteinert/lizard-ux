@@ -1,0 +1,167 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="LizardListBoxItemStyle" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="Padding" Value="4,1" />
+        <Setter Property="HorizontalContentAlignment"
+          Value="{Binding HorizontalContentAlignment,
+                          RelativeSource={RelativeSource FindAncestor,
+                                                         AncestorLevel=1,
+                                                         AncestorType={x:Type ItemsControl}}}" />
+        <Setter Property="VerticalContentAlignment"
+          Value="{Binding VerticalContentAlignment,
+                          RelativeSource={RelativeSource FindAncestor,
+                                                         AncestorLevel=1,
+                                                         AncestorType={x:Type ItemsControl}}}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="FocusVisualStyle">
+            <Setter.Value>
+                <Style>
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Rectangle Margin="2" SnapsToDevicePixels="True" 
+                                               Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+                                               StrokeDashArray="1 2" StrokeThickness="1" />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Border x:Name="Bd"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}"
+                Padding="{TemplateBinding Padding}"
+                SnapsToDevicePixels="True">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            Content="{TemplateBinding Content}"
+                            ContentStringFormat="{TemplateBinding ContentStringFormat}"
+                            ContentTemplate="{TemplateBinding ContentTemplate}"
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsMouseOver" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="Bd" Property="Background" Value="{StaticResource LizardBorderBrush.Hilight}" />
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource LizardBorderBrush.Hilight}" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="Selector.IsSelectionActive" Value="False" />
+                                <Condition Property="IsSelected" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="Bd" Property="Background" Value="{StaticResource LizardBorderBrush.SuperHilight}" />
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource LizardBorderBrush.SuperHilight}" />
+                        </MultiTrigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="Selector.IsSelectionActive" Value="True" />
+                                <Condition Property="IsSelected" Value="True" />
+                            </MultiTrigger.Conditions>
+                            <Setter TargetName="Bd" Property="Background" Value="{StaticResource LizardBorderBrush.SuperHilight.Action}" />
+                            <Setter TargetName="Bd" Property="BorderBrush" Value="{StaticResource LizardBorderBrush.SuperHilight.Action}" />
+                        </MultiTrigger>
+                        <!--<Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="Bd" Property="TextElement.Foreground"
+                                        Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+                        </Trigger>-->
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="LizardListBox" TargetType="{x:Type ListBox}">
+        <Setter Property="Background" Value="{StaticResource LizardGlobal.Content.Background}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource LizardBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+
+        <Setter Property="Foreground" Value="{StaticResource LizardGlobal.ForegroundBrush}"/>
+
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
+        <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
+        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBox}">
+                    <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="1" SnapsToDevicePixels="true">
+                        <ScrollViewer Focusable="false" Padding="{TemplateBinding Padding}" Style="{StaticResource LizardScrollViewerStyle}">
+                            <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        </ScrollViewer>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Background" TargetName="Bd" Value="{StaticResource LizardGlobal.Background.Transparent.Disabled}"/>
+                            <Setter Property="BorderBrush" TargetName="Bd" Value="{StaticResource LizardGlobal.Background.Transparent.Disabled}"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="IsGrouping" Value="true"/>
+                                <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+
+
+    <DataTemplate x:Key="MainMenuTemplate">
+        <Grid Background="Transparent" Margin="10">
+
+            <TextBlock Text="{Binding Name}"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Foreground="Transparent"
+                       FontSize="25">
+            </TextBlock>
+
+            <TextBlock x:Name="TxtBackText" Text="{Binding Name}"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Foreground="{StaticResource Button.Static.Foreground}"
+                       FontSize="24">
+            </TextBlock>
+            
+            <TextBlock x:Name="TxtContent" Text="{Binding Name}"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Foreground="{StaticResource Button.Static.Foreground}"
+                       FontSize="24">
+            </TextBlock>
+
+        </Grid>
+        <DataTemplate.Triggers>
+            <DataTrigger Binding="{Binding Path=IsSelected, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type ListBoxItem}}}" Value="True">
+                <Setter TargetName="TxtBackText" Property="FontSize" Value="25"></Setter>
+                <Setter TargetName="TxtBackText" Property="TextBlock.Effect">
+                    <Setter.Value>
+                        <BlurEffect Radius="10" RenderingBias="Quality" />
+                    </Setter.Value>
+                </Setter>
+
+                <Setter TargetName="TxtContent" Property="Foreground" Value="White"></Setter>
+            </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="TxtContent" Property="Foreground" Value="White"></Setter>
+            </Trigger>
+        </DataTemplate.Triggers>
+    </DataTemplate>
+
+</ResourceDictionary>

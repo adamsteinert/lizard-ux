@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="LizardUX.Scratch.ListViewPad"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="600">
+    <Grid >
+        <Grid.Background>
+            <ImageBrush AlignmentX="Right" AlignmentY="Top"
+                            ImageSource="/LizardUX;component/Assets/MarsRocks.png" TileMode="Tile" Stretch="None"/>
+        </Grid.Background>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <ListBox Style="{DynamicResource LizardListBox}" 
+                 ItemContainerStyle="{StaticResource LizardListBoxItemStyle}"
+                 BorderThickness="1 0 1 1">
+            <ListBoxItem Content="World of Warcraft" />
+            <ListBoxItem Content="Diablo III" />
+            <ListBoxItem Content="Heroes of the Storm" />
+            <ListBoxItem Content="Hearthstone" />
+            <ListBoxItem Content="Patch 2.2.0" />
+            <ListBoxItem Content="World of Warcraft " />
+            <ListBoxItem Content="Diablo III" />
+            <ListBoxItem Content="Heroes of the Storm" />
+            <ListBoxItem Content="Hearthstone" />
+            <ListBoxItem Content="Patch 2.2.0" />
+            <ListBoxItem Content="World of Warcraft" />
+            <ListBoxItem Content="Diablo III" />
+            <ListBoxItem Content="Heroes of the Storm" />
+            <ListBoxItem Content="Hearthstone" />
+            <ListBoxItem Content="Patch 2.2.0" />
+            <ListBoxItem Content="World of Warcraft" />
+            <ListBoxItem Content="Diablo III" />
+            <ListBoxItem Content="Heroes of the Storm" />
+            <ListBoxItem Content="Hearthstone" />
+            <ListBoxItem Content="Patch 2.2.0" />
+        </ListBox>
+    </Grid>
+</UserControl>

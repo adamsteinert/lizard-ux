@@ -1,0 +1,27 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+    
+
+    <SolidColorBrush x:Key="LizardGlobal.Background.Transparent" Color="Transparent"/>
+    <SolidColorBrush x:Key="LizardGlobal.Background.Transparent.Disabled" Color="#22FFFFFF"/>
+    <SolidColorBrush x:Key="LizardGlobal.Content.Background" Color="#0A555555"/>
+
+    <SolidColorBrush x:Key="LizardGlobal.ForegroundBrush" Color="#FF8E99A4"/>
+
+    <SolidColorBrush x:Key="LizardBorderBrush" Color="#24FFFFFF"></SolidColorBrush>
+    <SolidColorBrush x:Key="LizardBorderBrush.Hilight" Color="#2B0173F7"></SolidColorBrush>
+    <SolidColorBrush x:Key="LizardBorderBrush.SuperHilight" Color="#2B0173F7"></SolidColorBrush>
+    <SolidColorBrush x:Key="LizardBorderBrush.SuperHilight.Action" Color="#772D3E53"></SolidColorBrush>
+    <SolidColorBrush x:Key="LizardBorderBrush.Dim" Color="#442D3E53"></SolidColorBrush>
+
+    <SolidColorBrush x:Key="LizardTransparentContent" Color="#14FFFFFF"></SolidColorBrush>
+
+    <SolidColorBrush x:Key="LizardTransparentContent.Dim" Color="#23FFFFFF"></SolidColorBrush>
+    <SolidColorBrush x:Key="LizardTransparentContent.Dark" Color="#12FFFFFF"></SolidColorBrush>
+
+
+    <Brush x:Key="LizardMenu.Foreground">#B3B3B3</Brush>
+
+</ResourceDictionary>

@@ -1,0 +1,95 @@
+﻿<Window x:Class="LizardUX.Samples.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:scratch="clr-namespace:LizardUX.Scratch"
+        xmlns:content="clr-namespace:LizardUX.Samples.Content"
+        Title="MainWindow" Height="711" Width="1156"
+    BorderThickness="0"
+    WindowStyle="None"
+    AllowsTransparency="True"
+    Background="Transparent"    
+    ResizeMode="CanResizeWithGrip"
+    WindowStartupLocation="CenterScreen"
+    RenderOptions.ClearTypeHint="Enabled"
+    TextOptions.TextFormattingMode="Ideal">
+    <Border BorderThickness="1" BorderBrush="Black" >
+        <Grid>
+            <!-- Red theme options -->
+            <!--<Grid.Background>
+                <ImageBrush AlignmentX="Right" AlignmentY="Top"
+                            ImageSource="/LizardUX;component/Assets/RedRocks.png" TileMode="Tile" Stretch="None"/>
+            </Grid.Background>-->
+
+            <!-- Blue theme options -->
+            <Grid.Background>
+                <ImageBrush AlignmentX="Right" AlignmentY="Top"
+                            ImageSource="/LizardUX;component/Assets/Fragments.png" TileMode="Tile" Stretch="None"/>
+            </Grid.Background>
+
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25" />
+                <RowDefinition Height="55" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Border x:Name="WinDragBackdrop" Grid.RowSpan="2" 
+                    BorderBrush="{StaticResource LizardBorderBrush}" BorderThickness="1"
+                    Background="{StaticResource LizardTransparentContent}" MouseDown="WinDragBackdrop_OnMouseDown"></Border>
+
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 2 6 0" >
+                <Button x:Name="MinimizeButton" Style="{DynamicResource MenuButtonStyle}" Content="&#xF068;" VerticalContentAlignment="Bottom" Click="MinimizeButton_OnClick" />
+                <Button x:Name="WindowButton" Style="{DynamicResource MenuButtonStyle}" Content="&#xF096;" Click="WindowButton_OnClick"></Button>
+                <Button x:Name="CloseButton" Style="{DynamicResource MenuButtonStyle}" Click="CloseButton_OnClick" Content="&#xF00D;">
+
+                </Button>
+            </StackPanel>
+
+
+            <TabControl TabStripPlacement="Left" Grid.Row="2" Background="Transparent">
+
+                <TabItem Header="Buttons">
+                    <content:ButtonsSample />
+                </TabItem>
+
+                <TabItem Header="List Box">
+                    <content:ListBoxSample />
+                </TabItem>
+
+                <TabItem Header="Tooltips">
+                    <content:TooltipSample />
+                </TabItem>
+
+
+
+                <!-- Standard controls sample pages from MUI -->
+
+
+                <TabItem Header="Scroll Viewer">
+                    <content:ScrollViewerSample />
+                </TabItem>
+
+                <TabItem Header="Slider">
+                    <content:SliderSample />
+                </TabItem>
+
+                <TabItem Header="Forms">
+                    <content:FormSample />
+                </TabItem>
+
+                <TabItem Header="Progress">
+                    <content:ProgressBarSample />
+                </TabItem>
+
+                <TabItem Header="Items Control">
+                    <content:ItemsControlSample />
+                </TabItem>
+
+            </TabControl>
+
+
+        </Grid>
+    </Border>
+
+</Window>
+    
