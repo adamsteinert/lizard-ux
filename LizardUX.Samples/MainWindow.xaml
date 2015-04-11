@@ -37,6 +37,14 @@
                     BorderBrush="{StaticResource LizardBorderBrush}" BorderThickness="1"
                     Background="{StaticResource LizardTransparentContent}" MouseDown="WinDragBackdrop_OnMouseDown"></Border>
 
+
+            <Path Grid.Row="0" HorizontalAlignment="Center" 
+                  Stroke="#33FFFFFF" StrokeThickness="0.5"
+                  Fill="#33000000" 
+                  Data="M0,0 L10,10 H700 L710,0"
+                  MouseDown="WinDragBackdrop_OnMouseDown" />
+            <!--{StaticResource LizardGlobal.Background.Transparent.Disabled}-->
+            
             <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 2 6 0" >
                 <Button x:Name="MinimizeButton" Style="{DynamicResource MenuButtonStyle}" Content="&#xF068;" VerticalContentAlignment="Bottom" Click="MinimizeButton_OnClick" />
                 <Button x:Name="WindowButton" Style="{DynamicResource MenuButtonStyle}" Content="&#xF096;" Click="WindowButton_OnClick"></Button>
